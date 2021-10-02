@@ -1,0 +1,65 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://sounds_1/422426__behansean__jumps-start.wav" type="AudioStream" id=1]
+[ext_resource path="res://player/KinematicBody2D.gd" type="Script" id=2]
+[ext_resource path="res://Graphics/sprite6moving.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/sprite5moving.png" type="Texture" id=4]
+[ext_resource path="res://Graphics/sprite8moving.png" type="Texture" id=5]
+[ext_resource path="res://Graphics/sprite4moving.png" type="Texture" id=6]
+[ext_resource path="res://Graphics/sprite7moving.png" type="Texture" id=7]
+[ext_resource path="res://Graphics/sprite12jumping.png" type="Texture" id=8]
+[ext_resource path="res://Graphics/sprite10jumping.png" type="Texture" id=9]
+[ext_resource path="res://Graphics/sprite9jumping.png" type="Texture" id=10]
+[ext_resource path="res://Graphics/sprite11jumping.png" type="Texture" id=11]
+[ext_resource path="res://Graphics/sprite13jumping.png" type="Texture" id=12]
+[ext_resource path="res://Graphics/sprite14jumping.png" type="Texture" id=13]
+[ext_resource path="res://Graphics/sprite3moving.png" type="Texture" id=14]
+[ext_resource path="res://Graphics/sprite15shouting.png" type="Texture" id=15]
+[ext_resource path="res://Graphics/sprite17falling.png" type="Texture" id=16]
+[ext_resource path="res://Graphics/sprite16shouting.png" type="Texture" id=17]
+[ext_resource path="res://Graphics/sprite18falling.png" type="Texture" id=18]
+[ext_resource path="res://Graphics/sprite19falling.png" type="Texture" id=19]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "MOVE",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "jump",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 18 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "hurt",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 28.9973, 60.4923 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" groups=[
+"Player",
+]]
+position = Vector2( 499.866, 285.307 )
+collision_mask = 15
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "hurt"
+frame = 2
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 2, 3 )
+shape = SubResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )

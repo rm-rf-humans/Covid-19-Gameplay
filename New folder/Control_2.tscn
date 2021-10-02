@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Graphics/heart.png" type="Texture" id=1]
+[ext_resource path="res://Graphics/mask_1.png" type="Texture" id=2]
+[ext_resource path="res://arcadeclassic/ARCADECLASSIC.TTF" type="DynamicFontData" id=3]
+[ext_resource path="res://New folder/Control_2.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
+
+[node name="Control_2" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.862745, 0.862745, 0.862745, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -103.0
+margin_top = -178.0
+margin_right = 14.0
+margin_bottom = 1.00018
+rect_scale = Vector2( 1.745, 1.745 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -263.0
+margin_top = -318.0
+margin_right = -51.9999
+margin_bottom = -281.0
+rect_scale = Vector2( 2.5, 2.5 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "don't  forget  to  wear  a  mask 
+        when  you  play  outside "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_left = 447.0
+margin_top = 519.0
+margin_right = 1472.0
+margin_bottom = 1385.0
+rect_scale = Vector2( 0.108, 0.108 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

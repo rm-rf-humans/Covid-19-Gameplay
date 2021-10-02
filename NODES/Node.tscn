@@ -1,0 +1,134 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://player/KinematicBody2D.tscn" type="PackedScene" id=1]
+[ext_resource path="res://arcadeclassic/ARCADECLASSIC.TTF" type="DynamicFontData" id=2]
+[ext_resource path="res://NODES/Node.gd" type="Script" id=3]
+[ext_resource path="res://Background/Area2D.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Life2D/Lifes2D.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/coin.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Graphics/mask.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Area2D.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Graphics/alcohol_3_0.png" type="Texture" id=9]
+
+[sub_resource type="Animation" id=1]
+resource_name = "scroll"
+length = 15.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -3154, 0 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 512, 4 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 2 )
+
+[node name="Node" type="Node"]
+script = ExtResource( 3 )
+
+[node name="background" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "scroll"
+anims/scroll = SubResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 512, 547 )
+shape = SubResource( 2 )
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 494, 474 )
+collision_mask = 6
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[node name="Score" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -33.0
+margin_top = 18.0
+margin_right = 12.0
+margin_bottom = 17.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.490196, 0.301961, 0.313726, 1 )
+text = "Score"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1024, 193 )
+scale = Vector2( 0.100003, 19.5 )
+
+[node name="Lifes2D" parent="." instance=ExtResource( 5 )]
+
+[node name="coin" parent="." instance=ExtResource( 6 )]
+
+[node name="coinTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="CoinShape" type="Sprite" parent="."]
+position = Vector2( 851, 74 )
+scale = Vector2( 0.073903, 0.073903 )
+texture = ExtResource( 7 )
+
+[node name="coinCounter" type="Label" parent="."]
+margin_left = 910.0
+margin_top = 66.0
+margin_right = 926.0
+margin_bottom = 80.0
+rect_scale = Vector2( 1.5, 1.5 )
+text = "X0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1246, 363 )
+
+[node name="alcohoTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Alcohollabel" type="Label" parent="."]
+margin_left = 910.0
+margin_top = 138.0
+margin_right = 950.0
+margin_bottom = 152.0
+rect_scale = Vector2( 1.5, 1.5 )
+text = "X0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AlcoholShape" type="Sprite" parent="."]
+position = Vector2( 847, 138 )
+scale = Vector2( 0.079745, 0.079745 )
+texture = ExtResource( 9 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
+[connection signal="timeout" from="coinTimer" to="." method="_on_coinTimer_timeout"]
+[connection signal="timeout" from="alcohoTimer" to="." method="_on_alcohoTimer_timeout"]
