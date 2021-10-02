@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/422426__behansean__jumps-start.wav-0a8c31ed46a0cfb52b0cf64cb75da69d.sample"
+
+[deps]
+
+source_file="res://sounds_1/422426__behansean__jumps-start.wav"
+dest_files=[ "res://.import/422426__behansean__jumps-start.wav-0a8c31ed46a0cfb52b0cf64cb75da69d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

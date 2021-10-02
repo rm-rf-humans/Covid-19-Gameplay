@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://arcadeclassic/ARCADECLASSIC.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://Graphics/SAVE the world.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/heart.png" type="Texture" id=3]
+[ext_resource path="res://titlePic/Control.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 1 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.862745, 0.862745, 0.862745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -300.0
+margin_right = 300.0
+margin_bottom = 542.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 210.0
+margin_top = 531.0
+margin_right = 1235.0
+margin_bottom = 1397.0
+rect_scale = Vector2( 0.052, 0.051 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -210.0
+margin_top = -195.0
+margin_right = -94.0
+margin_bottom = -178.0
+rect_scale = Vector2( 3.5, 3.5 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.0941176, 0.0352941, 0.0352941, 1 )
+text = "SAVE  THE  WORLD"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -167.0
+margin_top = -118.0
+margin_right = -3.99997
+margin_bottom = -101.0
+rect_scale = Vector2( 2.097, 2.099 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.0745098, 0.0705882, 0.0705882, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "press  space to  start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScore" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -36.0
+margin_top = -43.0
+margin_right = 47.0
+margin_bottom = -13.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.0941176, 0.0352941, 0.0352941, 1 )
+text = "High score"
+__meta__ = {
+"_edit_use_anchors_": false
+}
